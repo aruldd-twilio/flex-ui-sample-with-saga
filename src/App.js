@@ -1,5 +1,7 @@
 import React from "react";
 import * as Flex from "@twilio/flex-ui";
+import { Provider } from "react-redux";
+import { myReduxStore } from "./store";
 
 class App extends React.Component {
   render() {
@@ -10,9 +12,11 @@ class App extends React.Component {
     }
 
     return (
-      <Flex.ContextProvider manager={manager}>
-        <Flex.RootContainer />
-      </Flex.ContextProvider>
+      <Provider store={myReduxStore}>
+        <Flex.ContextProvider manager={manager}>
+          <Flex.RootContainer />
+        </Flex.ContextProvider>
+      </Provider>
     );
   }
 }
